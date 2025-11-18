@@ -3,9 +3,3 @@
   tasks:
   - name: ping the server
     ansible.builtin.ping: 
-
-- name: ping the server
-  host: backend
-  tasks:
-  - name: ping the server
-    ansible.builtin.ping: 
