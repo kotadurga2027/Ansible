@@ -1,5 +1,7 @@
-- name: ping the server
-  hosts: frontend
+- name: hello world
+  hosts: local
+  connection: local # no need of user name and password, if we mention local and we need to give [local] local host in inventory.ini
   tasks:
-  - name: ping the server
-    ansible.builtin.ping: 
+  - name: print hellow world
+    ansible.builtin.debug:
+      msg: "hello world"
