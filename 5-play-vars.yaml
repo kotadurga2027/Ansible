@@ -1,6 +1,6 @@
 - name: play level variables
   hosts: frontend
-  var:
+  vars:
     COURSE: ansible
     DURATION: 120 hrs
     TRAINER: Sivakumar
