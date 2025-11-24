@@ -15,4 +15,4 @@
 
   - name: installed and running
     ansible.builtin.debug:
-    msg: "Nginx started and installed"
+      msg: "Nginx started and installed"
