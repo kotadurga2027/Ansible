@@ -11,8 +11,6 @@
       COURSE: ansible
       ansible.builtin.debug:
         msg: "Hello i joined in course {{COURSE}} with duration {{DURATION}} trained by {{TRAINER}}"
-
-  tasks:
   - name: print the course details again
       ansible.builtin.debug:
         msg: "Hello i joined in course {{COURSE}} with duration {{DURATION}} trained by {{TRAINER}}"
