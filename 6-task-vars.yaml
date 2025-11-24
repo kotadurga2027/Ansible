@@ -8,9 +8,9 @@
   tasks:
   - name: print the course details
     vars:
-      COURSE: ansible
-        ansible.builtin.debug:
-          msg: "Hello i joined in course {{COURSE}} with duration {{DURATION}} trained by {{TRAINER}}"
+      COURSE: nginx
+      ansible.builtin.debug:
+        msg: "Hello i joined in course {{COURSE}} with duration {{DURATION}} trained by {{TRAINER}}"
   - name: print the course details again
-        ansible.builtin.debug:
-          msg: "Hello i joined in course {{COURSE}} with duration {{DURATION}} trained by {{TRAINER}}"
+      ansible.builtin.debug:
+        msg: "Hello i joined in course {{COURSE}} with duration {{DURATION}} trained by {{TRAINER}}"
