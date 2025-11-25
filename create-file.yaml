@@ -1,6 +1,5 @@
 - name: create the file from ansible server to node server
-  hosts: local
-  connection: local
+  hosts: 44.197.204.140 
   tasks:
     - name: create the file
       ansible.builtin.file:
