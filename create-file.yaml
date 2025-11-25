@@ -3,7 +3,7 @@
   tasks:
     - name: create the file
       ansible.builtin.file:
-        path: /home/ec2-user/files/hello.txt
+        path: /home/ec2-user/file2/hello.txt
         state: touch
         owner: ec2-user 
         group: ec2-user
