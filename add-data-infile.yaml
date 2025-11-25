@@ -2,7 +2,8 @@
   hosts: frontend
   tasks:
   - name: add the data
-    lineinfile: /home/ec2-user/file2/hello.txt
-    line: "Hi This is kotadurga"
-    insertafter: EOF
-    create: yes
+    lineinfile:
+      path: /home/ec2-user/file2/hello.txt
+      line: "Hi This is kotadurga"
+      insertafter: EOF # Adds the line at the end of the file
+      create: yes # Creates the file if it doesn't exist
