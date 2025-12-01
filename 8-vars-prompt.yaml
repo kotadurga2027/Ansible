@@ -6,9 +6,9 @@
       prompt: please enter the user name
       private: false
     
-  - name: PASSWORD
-    prompt: please enter the password
-    private: true
+    - name: PASSWORD
+      prompt: please enter the password
+      private: true
 
   tasks:
     - name: complete user details
