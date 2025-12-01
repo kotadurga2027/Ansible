@@ -2,7 +2,7 @@
   hosts: local
   connection: local
   vars:
-    GREETING: :Hello this is kotadurga"
+    GREETING: "Hello this is kotadurga"
   vars_files:
    - course.yaml
   vars_prompt:
