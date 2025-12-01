@@ -1,8 +1,8 @@
 - name: understand the vars preference
   hosts: local
   connection: local
-  vars:
-    GREETING: "Hello this is kotadurga"
+  # vars:
+  #   GREETING: "Hello this is play"
   vars_files:
    - course.yaml
   # vars_prompt:
