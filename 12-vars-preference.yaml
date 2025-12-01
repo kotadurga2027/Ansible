@@ -5,10 +5,10 @@
     GREETING: "Hello this is kotadurga"
   vars_files:
    - course.yaml
-  vars_prompt:
-    - name: GREETING
-      prompt: "please enter your greetings"
-      private: false
+  # vars_prompt:
+  #   - name: GREETING
+  #     prompt: "please enter your greetings"
+  #     private: false
   tasks:
     - name: print the greetings
       # vars:
