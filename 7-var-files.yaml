@@ -14,6 +14,6 @@
   vars_files:
   - course.yaml
   tasks:
-  - name: print the greetings
+  - name: print the course details
     ansible.builtin.debug:
-      msg: "{{ GREETING}}"
+      msg: "Hi I am learning course {{ COURSE }} and duration is {{ DURATION }} and trainer is {{ TRAINER }}"
