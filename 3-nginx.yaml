@@ -1,18 +1,36 @@
-- name: install nginx
-  hosts: local
-  connection: local
-  become: yes #sudo access
-  tasks:
-  - name: nginx install
-    ansible.builtin.package:
-      name: nginx
-      state: present
-  - name: start nginx
-    ansible.builtin.service:
-      name: nginx
-      state: started
-      enabled: yes
+# - name: install nginx
+#   hosts: local
+#   connection: local
+#   become: yes #sudo access
+#   tasks:
+#   - name: nginx install
+#     ansible.builtin.package:
+#       name: nginx
+#       state: present
+#   - name: start nginx
+#     ansible.builtin.service:
+#       name: nginx
+#       state: started
+#       enabled: yes
 
-  - name: installed and running
+#   - name: installed and running
+#     ansible.builtin.debug:
+#       msg: "Nginx started and installed"
+
+
+- name: install the nexus
+  hosts: frontend
+  become: yes
+  tasks:
+  - name: nexus install
+    ansibile.builtin.package:
+      name: nexus
+      state: present
+  - name: nexus started
+    ansible.builtin.service:
+      name: nexus
+      status: started
+      enabled: yes
+  - name: print the status of nexus
     ansible.builtin.debug:
-      msg: "Nginx started and installed"
+      msg: "Nexus installed and runing"
