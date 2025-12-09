@@ -1,16 +1,37 @@
-- name: play level variables
+# - name: play level variables
+#   hosts: local
+#   connection: local
+#   vars:
+#     COURSE: AWS
+#     DURATION: 120 hrs
+#     TRAINER: Sivakumar
+#   tasks:
+#   - name: print course information
+#     vars:
+#       COURSE: ansible
+#     ansible.builtin.debug:
+#       msg: "Hello i was joined in {{COURSE}} and duration is {{DURATION}} and trainer is {{TRAINER}}"
+#   - name: print course information again
+#     ansible.builtin.debug:
+#       msg: "Hello i was joined in {{COURSE}} and duration is {{DURATION}} and trainer is {{TRAINER}}"
+
+
+- name: play leveland vars
   hosts: local
   connection: local
   vars:
-    COURSE: AWS
-    DURATION: 120 hrs
+    COURSE: ansible
+    DURATION: 10hr
     TRAINER: Sivakumar
   tasks:
-  - name: print course information
+  - name: taks level vars
     vars:
-      COURSE: ansible
-    ansible.builtin.debug:
+    COURSE: AWS
+    DURATION: 12hr
+    TRAINER: Sivakumar
+    ansible.builtin.debud:
       msg: "Hello i was joined in {{COURSE}} and duration is {{DURATION}} and trainer is {{TRAINER}}"
-  - name: print course information again
+  - name: print the course information again
     ansible.builtin.debug:
-      msg: "Hello i was joined in {{COURSE}} and duration is {{DURATION}} and trainer is {{TRAINER}}"
+      msg: "Hello i was joined in {{COURSE}} and duration is {{DURATION}} and trainer is {{TRAINER}}""
+
