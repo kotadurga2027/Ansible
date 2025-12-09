@@ -1,3 +1,20 @@
+- name: Checking the vars preference
+  hosts: local
+  connection: local
+  vars:
+    COURSE: "Hi This is from play"
+  vars_files:
+    - course.yaml
+  vars_prompt:
+    - name: GREETING
+      prompt: "Please enter your greetings"
+      private: false
+  tasks:
+    - name : Print the greetings
+      vars:
+        GREETING: " Hi This from taks"
+      ansible.builtin.debug:
+        msg: "Hi {{GREETING}}"
 
 
   
