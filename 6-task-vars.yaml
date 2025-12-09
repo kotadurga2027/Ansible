@@ -29,7 +29,7 @@
       COURSE: AWS
       DURATION: 12hr
       TRAINER: Sivakumar
-    ansible.builtin.debud:
+    ansible.builtin.debug:
       msg: "Hello i was joined in {{ COURSE }} and duration is {{ DURATION }} and trainer is {{ TRAINER }}"
   - name: print the course information again
     ansible.builtin.debug:
