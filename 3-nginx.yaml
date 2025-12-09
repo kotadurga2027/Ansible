@@ -18,17 +18,17 @@
 #       msg: "Nginx started and installed"
 
 
-- name: install the nexus
+- name: install the nginx
   hosts: frontend
   become: yes
   tasks:
-  - name: nexus install
+  - name: nginx install
     ansibile.builtin.package:
-      name: nexus
+      name: nginx
       state: present
-  - name: nexus started
+  - name: nginx started
     ansible.builtin.service:
-      name: nexus
+      name: nginx
       status: started
       enabled: yes
   - name: print the status of nexus
