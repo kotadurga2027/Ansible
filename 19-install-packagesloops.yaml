@@ -45,7 +45,7 @@
       enabled: no
 
     loop:
-      mysql
-      zip
-      nginx
+      - mysql
+      - zip
+      - nginx
    
