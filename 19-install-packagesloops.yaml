@@ -34,7 +34,7 @@
       enabled: yes
     loop: "{{service_list}}"
 # to check and print the status of packages
-  - name: To check the package service states
+  - name: To check the package service status
     ansible.builtin.service_facts:
 
   - name: print package running status
