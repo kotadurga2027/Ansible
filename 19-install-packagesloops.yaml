@@ -14,11 +14,7 @@
       name: "{{item}}"
       state: installed
     when: ansible_os_family=="Debian"
-    loop:
-      mysql
-      zip
-      nginx
-
+    
   #to start and enable the packages service
   
   - name: start the package service 
@@ -47,4 +43,9 @@
       name: "{{item}}"
       state: stopped
       enabled: no
+
+    loop:
+      mysql
+      zip
+      nginx
    
