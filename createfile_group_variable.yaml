@@ -8,7 +8,7 @@
       msg: "we are creating the file in this server {{ inventory_hostname }}"
   - name:
     ansible.builtin.copy:
-      path: "{{file_path}}"
+      dest: "{{file_path}}"
       content: "{{file_content}}"
       owner: "{{ansible_user}}"
       group: "{{ansible_password}}"
