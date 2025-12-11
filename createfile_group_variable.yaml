@@ -4,11 +4,11 @@
   gather_facts: yes
   tasks:
 - name:
-    ansible.builtin.copy:
-      path: "{{file_path}}"
-      content: "{{file_content}}"
-      owner: "{{ansible_user}}"
-      group: "{{ansible_password}}"
-      mode: '7777'
+  ansible.builtin.copy:
+    path: "{{file_path}}"
+    content: "{{file_content}}"
+    owner: "{{ansible_user}}"
+    group: "{{ansible_password}}"
+    mode: '7777'
 
 
