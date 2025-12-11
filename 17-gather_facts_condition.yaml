@@ -7,14 +7,14 @@
       name: nginx
       state: installed
       enabled: yes
-    when: ansible_os_family== "Redhat"
+    when: ansible_os_family=="RedHat"
 
   - name: install the nginx if os is ubuntu
     ansible.builtin.dnf:
-      name: ubuntu
+      name: nginx
       state: installed
       enabled: yes
-    when: ansible_os_family== "Ubuntu"
+    when: ansible_os_family=="Ubuntu"
 
 
 
