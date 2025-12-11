@@ -2,6 +2,7 @@
   hosts: frontend
   become: yes
   tasks:
+  #To install the nginx we can use the below code
   - name: install the nginx if OS is redhat
     ansible.builtin.dnf:
       name: nginx
@@ -13,13 +14,15 @@
       name: nginx
       state: installed
     when: ansible_os_family=="Debian"
+
+  #to start and enable the nginx service
   
   - name: start the nginx service 
     ansible.builtin.service:
       name: nginx
       state: started
       enabled: yes
-
+# to check and print the status of nginx
   - name: To check the nginx service states
     ansible.builtin.service_facts:
 
@@ -34,7 +37,8 @@
         msg: "Nginx is NOT running on {{ inventory_hostname }}"
     when: services['nginx.service'].state != "running"
 
-  - name: stop and disable the nginx
+# to stop the nginx service we can use the below code.
+  - name: stop and disable the nginx 
     ansible.builtin.service:
       name: nginx
       state: stopped
