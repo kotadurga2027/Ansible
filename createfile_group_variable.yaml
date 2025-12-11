@@ -3,10 +3,7 @@
   become: yes
   gather_facts: yes
   tasks:
-  - name:
-    ansible.builtin.debug:
-      msg: "we are creating the file in this server {{inventory_host}}"
-  - name:
+- name:
     ansible.builtin.copy:
       path: "{{file_path}}"
       content: "{{file_content}}"
