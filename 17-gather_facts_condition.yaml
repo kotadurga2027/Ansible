@@ -1,0 +1,19 @@
+- name: gathering the facts and used to install the niginx
+  hosts: frontend
+  become: yes
+  tasks:
+  - name: install the nginx if OS is redhat
+    ansible.builtin.dnf:
+      name: nginx
+      state: present
+    when: ansible_os_family== redhat
+  - name: install the nginx if os is ubuntu
+    ansible.builtin.dnf:
+      name: ubuntu
+      state: present
+    when: ansible_os_family==Ubuntu
+
+
+
+
+   
