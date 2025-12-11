@@ -1,10 +1,6 @@
 - name: gathering the facts and used to install the multiple packages using loop
   hosts: frontend
   become: yes
-  vars:
-    service_list:
-      - nginx
-      - httpd
   tasks:
   #To install the nginx we can use the below code
   - name: install the package if OS is redhat
@@ -13,7 +9,6 @@
       state: installed
     loop:
       - nginx
-      - httpd
     when: ansible_os_family=="RedHat"
 
   - name: install the package if os is debian
@@ -21,7 +16,6 @@
       name: "{{item}}"
       state: installed
     loop:
-      - httpd
       - nginx
     when: ansible_os_family=="Debian"
     
@@ -32,8 +26,8 @@
       name: "{{item}}"
       state: started
       enabled: yes
-      ignore_erros: yes
-    loop: "{{service_list}}"
+    loop:
+      nginx
 # to check and print the status of packages
   - name: To check the package service status
     ansible.builtin.service_facts:
@@ -41,14 +35,16 @@
   - name: print package running status
     ansible.builtin.debug:
       msg: "{{item}} running in {{inventory_hostname}}"
-    loop: "{{service_list}}"
+    loop:
+      nginx
     when: services[item + '.service'].state == "running"
 
 
   - name: print package NOT running status
     ansible.builtin.debug:
       msg: "{{item}} is NOT running on {{ inventory_hostname }}"
-    loop: "{{service_list}}"
+    loop:
+      nginx
     when: services[item +'.service'].state != "running"
 
 # to stop the packahe service we can use the below code.
@@ -57,6 +53,7 @@
       name: "{{item}}"
       state: stopped
       enabled: no
-    loop: "{{service_list}}"
+    loop:
+      nginx
       
    
