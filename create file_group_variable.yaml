@@ -1,0 +1,15 @@
+- name: creating the file with group variables in different servers at a time
+  hosts: frontend
+  become: yes
+  gather_facts: yes
+  tasks:
+  ansible.builtin.debug:
+    msg: "we are creating the file in this server {{inventory_host}}"
+- name:
+    ansible.builtin.copy:
+    path: "{{file_path}}"
+    content: "{{file_content}}"
+    user: "{{ansible_user}}"
+    password: "{{ansible_password}}"
+
+
