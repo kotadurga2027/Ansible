@@ -5,7 +5,7 @@
   tasks:
   - name:
     ansible.builtin.debug:
-      msg: "we are creating the file in this server {{inventory_host}}"
+      msg: "we are creating the file in this server {{ inventory_hostname }}"
   - name:
     ansible.builtin.copy:
       path: "{{file_path}}"
