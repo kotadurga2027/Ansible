@@ -34,7 +34,9 @@
         msg: "Nginx is NOT running on {{ inventory_hostname }}"
     when: services['nginx.service'].state != "running"
 
-
-
-
+  - name: stop and disable the nginx
+    ansible.builtin.service:
+      name: nginx
+      state: stopped
+      enabled: no
    
