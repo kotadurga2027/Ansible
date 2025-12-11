@@ -4,7 +4,6 @@
   vars:
     service_list:
       - nginx
-      - mariaDB
       - httpd
   tasks:
   #To install the nginx we can use the below code
@@ -13,7 +12,6 @@
       name: "{{item}}"
       state: installed
     loop:
-      - mariaDB
       - nginx
       - httpd
     when: ansible_os_family=="RedHat"
@@ -23,7 +21,6 @@
       name: "{{item}}"
       state: installed
     loop:
-      - mariaDB
       - httpd
       - nginx
     when: ansible_os_family=="Debian"
