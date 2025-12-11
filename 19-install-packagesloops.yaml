@@ -5,13 +5,13 @@
   #To install the nginx we can use the below code
   - name: install the "{{item}}" if OS is redhat
     ansible.builtin.dnf:
-      name: {{item}}
+      name: "{{item}}"
       state: installed
     when: ansible_os_family=="RedHat"
 
   - name: install the "{{item}}" if os is debian
     ansible.builtin.apt:
-      name: {{item}}
+      name: "{{item}}"
       state: installed
     when: ansible_os_family=="Debian"
     loop:
@@ -23,7 +23,7 @@
   
   - name: start the "{{item}}" service 
     ansible.builtin.service:
-      name: {{item}}
+      name: "{{item}}"
       state: started
       enabled: yes
 # to check and print the status of packages
@@ -44,7 +44,7 @@
 # to stop the packahe service we can use the below code.
   - name: stop and disable the "{{item}}"" 
     ansible.builtin.service:
-      name: {{item}}
+      name: "{{item}}"
       state: stopped
       enabled: no
    
