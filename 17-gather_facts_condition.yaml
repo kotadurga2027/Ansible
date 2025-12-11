@@ -8,11 +8,31 @@
       state: installed
     when: ansible_os_family=="RedHat"
 
-  - name: install the nginx if os is ubuntu
-    ansible.builtin.dnf:
+  - name: install the nginx if os is debian
+    ansible.builtin.apt:
       name: nginx
       state: installed
-    when: ansible_os_family=="Ubuntu"
+    when: ansible_os_family=="Debian"
+  
+  - name: start the nginx service 
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      enabled: yes
+
+  - name: To check the nginx service states
+    ansible.builtin.service_facts:
+
+  - name: #Print nginx running status
+      ansible.builtin.debug:
+        msg: "Nginx running in {{inventory_hostname}}"
+      when: services['nginx.service'].state == "running"
+
+
+  - name: #Print nginx NOT running status
+      ansible.builtin.debug:
+        msg: "Nginx is NOT running on {{ inventory_hostname }}"
+      when: services['nginx.service'].state != "running"
 
 
 
