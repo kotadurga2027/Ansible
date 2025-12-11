@@ -3,13 +3,13 @@
   become: yes
   tasks:
   #To install the nginx we can use the below code
-  - name: install the {{item}} if OS is redhat
+  - name: install the package if OS is redhat
     ansible.builtin.dnf:
       name: "{{item}}"
       state: installed
     when: ansible_os_family=="RedHat"
 
-  - name: install the {{item}} if os is debian
+  - name: install the package if os is debian
     ansible.builtin.apt:
       name: "{{item}}"
       state: installed
@@ -21,28 +21,28 @@
 
   #to start and enable the packages service
   
-  - name: start the {{item}} service 
+  - name: start the package service 
     ansible.builtin.service:
       name: "{{item}}"
       state: started
       enabled: yes
 # to check and print the status of packages
-  - name: To check the {{item}} service states
+  - name: To check the package service states
     ansible.builtin.service_facts:
 
-  - name: print {{item}} running status
+  - name: print package running status
     ansible.builtin.debug:
         msg: "{{item}} running in {{inventory_hostname}}"
     when: services['{{item}}.service'].state == "running"
 
 
-  - name: print {{item}} NOT running status
+  - name: print package NOT running status
     ansible.builtin.debug:
         msg: "{{item}} is NOT running on {{ inventory_hostname }}"
     when: services['{{item}}.service'].state != "running"
 
 # to stop the packahe service we can use the below code.
-  - name: stop and disable the {{item}}
+  - name: stop and disable the package
     ansible.builtin.service:
       name: "{{item}}"
       state: stopped
