@@ -23,16 +23,16 @@
   - name: To check the nginx service states
     ansible.builtin.service_facts:
 
-  - name: #Print nginx running status
-      ansible.builtin.debug:
+  - name: print nginx running status
+    ansible.builtin.debug:
         msg: "Nginx running in {{inventory_hostname}}"
-      when: services['nginx.service'].state == "running"
+    when: services['nginx.service'].state == "running"
 
 
-  - name: #Print nginx NOT running status
-      ansible.builtin.debug:
+  - name: print nginx NOT running status
+    ansible.builtin.debug:
         msg: "Nginx is NOT running on {{ inventory_hostname }}"
-      when: services['nginx.service'].state != "running"
+    when: services['nginx.service'].state != "running"
 
 
 
