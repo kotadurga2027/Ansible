@@ -32,6 +32,7 @@
       name: "{{item}}"
       state: started
       enabled: yes
+      ignore_erros: yes
     loop: "{{service_list}}"
 # to check and print the status of packages
   - name: To check the package service status
