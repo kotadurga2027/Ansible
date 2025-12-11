@@ -7,12 +7,20 @@
     ansible.builtin.dnf:
       name: "{{item}}"
       state: installed
+    loop:
+      - mysql
+      - zip
+      - nginx
     when: ansible_os_family=="RedHat"
 
   - name: install the package if os is debian
     ansible.builtin.apt:
       name: "{{item}}"
       state: installed
+    loop:
+      - mysql
+      - zip
+      - nginx
     when: ansible_os_family=="Debian"
     
   #to start and enable the packages service
@@ -22,20 +30,32 @@
       name: "{{item}}"
       state: started
       enabled: yes
+    loop:
+      - mysql
+      - zip
+      - nginx
 # to check and print the status of packages
   - name: To check the package service states
     ansible.builtin.service_facts:
 
   - name: print package running status
     ansible.builtin.debug:
-        msg: "{{item}} running in {{inventory_hostname}}"
-    when: services['{{item}}.service'].state == "running"
+      msg: "{{item}} running in {{inventory_hostname}}"
+    loop:
+      - mysql
+      - zip
+      - nginx
+    when: services[item + '.service'].state == "running"
 
 
   - name: print package NOT running status
     ansible.builtin.debug:
-        msg: "{{item}} is NOT running on {{ inventory_hostname }}"
-    when: services['{{item}}.service'].state != "running"
+      msg: "{{item}} is NOT running on {{ inventory_hostname }}"
+    loop:
+      - mysql
+      - zip
+      - nginx
+    when: services[item +'.service'].state != "running"
 
 # to stop the packahe service we can use the below code.
   - name: stop and disable the package
@@ -43,7 +63,6 @@
       name: "{{item}}"
       state: stopped
       enabled: no
-
     loop:
       - mysql
       - zip
