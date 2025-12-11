@@ -6,12 +6,12 @@
     ansible.builtin.dnf:
       name: nginx
       state: present
-    when: ansible_os_family== redhat
+    when: ansible_os_family== "Redhat"
   - name: install the nginx if os is ubuntu
     ansible.builtin.dnf:
       name: ubuntu
       state: present
-    when: ansible_os_family==Ubuntu
+    when: ansible_os_family== "Ubuntu"
 
 
 
