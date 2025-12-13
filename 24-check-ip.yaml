@@ -1,24 +1,24 @@
-# - name: check the given ip is valid or NOT
-#   hosts: local
-#   connection: local
-#   vars_prompt:
-#     - name: USER_IP
-#       prompt: "please enter the your systemIP"
-#       private: false
-#   tasks:
-#   - name: change the ip to string
-#     ansible.builtin.debug:
-#       msg: " IP change to string {{USER_IP | string}}"
-#   - name: checking the IPaddress
-#     ansible.builtin.debug:
-#       msg: " {{USER_IP | ansible.utils.ipaddr}}"
-
-- name: check the given IP is valid or NOT
+- name: check the given ip is valid or NOT
   hosts: local
   connection: local
-  vars:
-    ip: "192:78:89:1"
+  vars_prompt:
+    - name: USER_IP
+      prompt: "please enter the your systemIP"
+      private: false
   tasks:
-    - name: checking the IP
-      ansible.builtin.debug:
-        msg: "{{ip | ansible.utils.ipaddr}}"
+  - name: change the ip to string
+    ansible.builtin.debug:
+      msg: " IP change to string {{USER_IP | string}}"
+  - name: checking the IPaddress
+    ansible.builtin.debug:
+      msg: " {{USER_IP | ansible.utils.ipaddr}}"
+
+# - name: check the given IP is valid or NOT
+#   hosts: local
+#   connection: local
+#   vars:
+#     ip: "192.78.0.1"
+#   tasks:
+#     - name: check the ip
+#       ansible.builtin.debug:
+#         msg: "{{ip | ansible.utils.ipaddr}}"
