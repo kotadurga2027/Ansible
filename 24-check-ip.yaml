@@ -2,10 +2,13 @@
   hosts: local
   connection: local
   vars_prompt:
-    name: IPaddress
-    prompt: "Please enter the ipaddress"
-    private: false
+    - name: USER_IP
+      prompt: "please enter the your systemIP"
+      private: false
   tasks:
+  - name: change the ip to string
+    ansible.builtin.debug:
+      msg: " IP change to string {{USER_IP | string}}"
   - name: checking the IPaddress
     ansible.builtin.debug:
       msg: " {{IPaddress | ansible.utils.ipaddr}}"
