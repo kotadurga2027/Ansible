@@ -1,4 +1,4 @@
-- name: convert the string data to upper and lower Creates
+- name: convert the string data to upper and lower
   hosts: local
   connection: local
   vars:
@@ -7,7 +7,7 @@
   - name: convert upper
     ansible.builtin.debug:
       msg: "My name is {{NAME | upper}}"
-  tasks:
+  
   - name: convert lower
     ansible.builtin.debug:
-      msg: "My name is {{ NAME | lower}}"
+      msg: "My name is {{NAME | lower}}"
