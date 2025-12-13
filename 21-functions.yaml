@@ -17,4 +17,4 @@
   tasks:
     - name: print the string variables to list using split
       ansible.builtin.debug:
-        msg: "Hello {{persons | split(',')}}"
+        msg: "Hello {{persons | split('')}}"
