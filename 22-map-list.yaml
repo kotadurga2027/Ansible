@@ -1,11 +1,10 @@
-- name: convert from map to list
+- name: convert the map to list
   hosts: local
   connection: local
-  tasks:
   vars:
     COURSE:
-      name: ansible
-      duration: 12hr
-      modeofteaching: online
-  ansible.builtin.debug: 
-    msg: "I am leaning {{ COURSE | dict2item }}"
+      name: linux
+      duration: 10HR
+      mode: online
+  ansible.builtin.debug:
+    msg: "Course: {{COURSE | dict2item}}"
