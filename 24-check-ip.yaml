@@ -17,8 +17,8 @@
   hosts: local
   connection: local
   vars:
-    IP: "192:78:89:1"
+    ip: "192:78:89:1"
   tasks:
     - name: checking the IP
       ansible.builtin.debug:
-        msg: "{{IP | ansible.utils.ipaddr}}"
+        msg: "{{ip | ansible.utils.ipaddr}}"
