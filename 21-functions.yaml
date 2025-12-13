@@ -5,3 +5,16 @@
   - name: print the default name
     ansible.builtin.debug:
       msg: " Hello {{person | default('kotadurga')}}"
+
+
+#here we are going to deficne the variable values and try to print the list order using the split(",")
+
+- name: print the name in order to string
+  hosts: local
+  connection: local
+  vars:
+    persons: "ramesh,suresh,ganesh,lucky,raja"
+  tasks:
+    - name: print the string variables to list using split
+      ansible.builtin.debug:
+        msg: "Hello {{persons | split(',')}}"
