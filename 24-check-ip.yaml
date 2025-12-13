@@ -3,7 +3,7 @@
   connection: local
   vars_prompt:
     name: IPaddress
-    prompt: "Please enter the ipaddress:"
+    prompt: "Please enter the ipaddress"
     private: no
   tasks:
   - name: checking the IPaddress
