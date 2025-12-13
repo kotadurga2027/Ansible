@@ -6,5 +6,7 @@
       name: linux
       duration: 10HR
       mode: online
-  ansible.builtin.debug:
-    msg: "Course: {{COURSE | dict2item}}"
+  tasks:
+    - name:
+        ansible.builtin.debug:
+          msg: "Course: {{COURSE | dict2item}}"
