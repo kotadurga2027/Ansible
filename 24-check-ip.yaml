@@ -11,5 +11,5 @@
       msg: " IP change to string {{USER_IP | string}}"
   - name: checking the IPaddress
     ansible.builtin.debug:
-      msg: " {{IPaddress | ansible.utils.ipaddr}}"
+      msg: " {{USER_IP | ansible.utils.ipaddr}}"
 
