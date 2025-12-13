@@ -15,6 +15,7 @@
   hosts: local
   connection: local
   tasks:
+  - name: print the course details
     vars:
       COURSE:
         - {'key':'name','value':'ansible'}
