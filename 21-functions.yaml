@@ -1,7 +1,7 @@
-- name: functions
-  hosts: local
+- name: function for give the default variable
+  hosts: local 
   connection: local
   tasks:
-  - name: print the person details
+  - name: print the default name
     ansible.builtin.debug:
-      msg: "Print {{person | default ('ramesh')}}"
+      msg: " Hello {{person | default('kotadurga')}}"
