@@ -1,12 +1,12 @@
 - name: convert the map to list
   hosts: local
   connection: local
-  vars:
-    COURSE:
-      name: linux
-      duration: 10HR
-      mode: online
   tasks:
-    - name:
-        ansible.builtin.debug:
-          msg: "Course: {{COURSE | dict2item}}"
+    - name: print the course details
+      vars:
+        COURSE:
+          name: ansible
+          duration: 12hr
+          mode: online
+      ansible.builtin.debug:
+        msg: "course {{COURSE | dict2item}}"
