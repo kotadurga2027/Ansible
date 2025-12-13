@@ -6,5 +6,7 @@
       name: ansible
       duration: 12hr
       modeofteaching: online
+  tasks:
+  - name: print the course details
   ansible.builtin.debug: 
     msg: "I am leaning {{ COURSE | dict2item }}"
