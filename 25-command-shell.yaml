@@ -4,16 +4,15 @@
   - name: redirect the ls out put to file
     ansible.builtin.shell: "ls -ltr > /tmp/output.txt"
     register: shell_output
+
   - name: print the output 
     ansible.builtin.debug:
       msg: "{{shell_output}}"
-      
-- name: checking command and shell
-  hosts: frontend
-  tasks:
+
   - name: redirect the ls out put to file
-    ansible.builtin.command: ls -ltr
+    ansible.builtin.command: "ls -ltr"
     register: command_output
+
   - name: print the output 
     ansible.builtin.debug:
       msg: "{{command_output}}"
