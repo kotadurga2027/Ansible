@@ -21,4 +21,4 @@
   tasks:
     - name: checking the IP
       ansible.builtin.debug:
-        msg: "{{Ip | ansible.utils.ipaddr}}"
+        msg: "{{IP | ansible.utils.ipaddr}}"
