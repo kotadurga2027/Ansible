@@ -1,13 +1,12 @@
 - name: checking command and shell
   hosts: frontend
-  become: yes
   tasks:
-    - name: redirect the ls out put to file
-      ansible.builtin.shell: "ls -l > tmp/output.txt"
-      register: shell_output
-    - name: print the output 
-      ansible.builtin.debug:
-        msg: "{{shell_output}}"
+  - name: redirect the ls out put to file
+    ansible.builtin.shell: "ls -ltr > tmp/output.txt"
+    register: shell_output
+  - name: print the output 
+    ansible.builtin.debug:
+      msg: "{{shell_output}}"
 
 
 
