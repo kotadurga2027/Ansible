@@ -9,4 +9,4 @@
           duration: 12hr
           mode: online
       ansible.builtin.debug:
-        msg: "course {{COURSE | dict2item}}"
+        msg: "course {{COURSE | dict2items}}"
