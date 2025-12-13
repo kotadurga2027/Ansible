@@ -10,3 +10,15 @@
           mode: online
       ansible.builtin.debug:
         msg: "course {{COURSE | dict2items}}"
+
+- name: convert lits to dict
+  hosts: local
+  connection: local
+  tasks:
+    vars:
+      COURSE:
+        - {'key':'name','value':'ansible'}
+        - {'key':'duration','value':'12hr'}
+        - {'key':'mode','value':'online'}
+    ansible.builtin.debug:
+      msg: "course {{COURSE | item2dict}}"
