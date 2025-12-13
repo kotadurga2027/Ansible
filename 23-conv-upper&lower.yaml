@@ -7,3 +7,7 @@
   - name: convert upper
     ansible.builtin.debug:
       msg: "My name is {{NAME | upper}}"
+  tasks:
+  - name: convert lower
+    ansible.builtin.debug:
+      msg: "My name is {{ NAME | lower}}"
