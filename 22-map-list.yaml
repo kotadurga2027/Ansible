@@ -9,4 +9,4 @@
   tasks:
     - name: print the output
       ansible.builtin.debug: 
-        msg: "I am leaning {{COURSE | dict2item}}"
+        msg: "I am leaning :{{ COURSE | dict2item }}"
