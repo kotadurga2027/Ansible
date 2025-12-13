@@ -22,4 +22,4 @@
         - {'key':'duration','value':'12hr'}
         - {'key':'mode','value':'online'}
     ansible.builtin.debug:
-      msg: "course {{COURSE | item2dict}}"
+      msg: "course {{COURSE | items2dict}}"
