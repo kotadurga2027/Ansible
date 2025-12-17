@@ -6,13 +6,19 @@
     ansible.builtin.command: lsblk
 
   - name: increase the disk size
-    ansbile.builtin.command: growpart /dev/nvme0n1 4
+    ansbile.builtin.command: growpart /dev/nvme0n1 1
 
   - name: increase the /dev/rootVG/rootVol
     ansible.builtin.command: lvextend -L +20G /dev/RootVG/rootVol
 
   - name: increase /dev/rootVG/varvol
     ansible.builtin.command: lvextend -L +15G /dev/RootVG/varVol
+
+  - name: chnage the / disk size
+    ansible.builtin.command: xfs_growfs /
+
+  - name: change the xfs_growfs /var
+    ansible.builtin.command: xfs_growfs /var
 
   - name: install the list of packages
     ansible.builtin.dnf:
