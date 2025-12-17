@@ -2,23 +2,18 @@
   hosts: frontend
   become: yes
   tasks: 
-  - name: show the disk partion details
-    ansible.builtin.command: lsblk
+  - name: print disk info
+    ansible.builtin.debug:
+      var: disk_info.stdout_lines
 
-  - name: increase the disk size
-    ansbile.builtin.command: growpart /dev/nvme0n1 1
+  - name: extend root partition
+    ansible.builtin.command: growpart /dev/nvme0n1 1
+    register: growpart_out
+    failed_when: false
 
-  - name: increase the /dev/rootVG/rootVol
-    ansible.builtin.command: lvextend -L +20G /dev/RootVG/rootVol
-
-  - name: increase /dev/rootVG/varvol
-    ansible.builtin.command: lvextend -L +15G /dev/RootVG/varVol
-
-  - name: chnage the / disk size
+  - name: grow filesystem (XFS)
     ansible.builtin.command: xfs_growfs /
-
-  - name: change the xfs_growfs /var
-    ansible.builtin.command: xfs_growfs /var
+    when: growpart_out.rc == 0
 
   - name: install the list of packages
     ansible.builtin.dnf:
