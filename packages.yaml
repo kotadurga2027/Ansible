@@ -3,17 +3,17 @@
   become: yes
   tasks: 
   - name: show the disk partion details
-    ansible.builtin.shell: lsblk
+    ansible.builtin.command: lsblk
 
   - name: increase the disk size
-    ansbile.builtin.shell: sudo growpart /dev/nvme0n1 4
+    ansbile.builtin.command: sudo growpart /dev/nvme0n1 4
 
   - name: increase the /dev/rootVG/rootVol
-    ansible.builtin.shell: sudo lvextend -L +20G /dev/RootVG/rootVol
+    ansible.builtin.command: sudo lvextend -L +20G /dev/RootVG/rootVol
 
   - name: increase /dev/rootVG/varvol
-    ansible.builtin.shell: sudo lvextend -L +15G /dev/RootVG/varVol
-    
+    ansible.builtin.command: sudo lvextend -L +15G /dev/RootVG/varVol
+
   - name: install the list of packages
     ansible.builtin.dnf:
       name: "{{item}}"
