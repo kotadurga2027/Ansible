@@ -1,0 +1,13 @@
+- name: configure the service
+  hosts: frontend
+  become: yes
+  tasks: 
+  - name: start the nginx service and enabled item
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      enabled: yes
+
+  - name: print the nginx status
+    ansible.builtin.debug:
+      msg: " Nginx is started and enabled"
