@@ -1,2 +1,2 @@
-- import: package.yaml
-- import: testing.yaml
+- import_playbook: package.yaml
+- import_playbook: testing.yaml
